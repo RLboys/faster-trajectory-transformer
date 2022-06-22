@@ -51,7 +51,8 @@ def rollout(
     context[:, :model.observation_dim] = torch.as_tensor(obs_tokens, device=device)  # initial tokens for planning
 
     done, total_reward, render_frames = False, 0.0, []
-    for step in (pbar := trange(max_steps, desc="Rollout steps", leave=False)):
+    pbar = trange(max_steps, desc="Rollout steps", leave=False)
+    for step in pbar:
         if step % plan_every == 0:
             # removing zeros from future, keep only context updated so far
             context_offset = model.transition_dim * (step + 1) - model.action_dim - 2

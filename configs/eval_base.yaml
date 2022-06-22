@@ -1,4 +1,4 @@
-checkpoints_path: "pretrained/medium/halfcheetah"
+checkpoints_path: "pretrained/halfcheetah"
 model_name: "model_last.pt"
 
 num_episodes: 25
